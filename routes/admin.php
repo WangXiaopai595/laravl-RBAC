@@ -20,6 +20,7 @@ Route::group(['middleware' => ['login']], function () {
 		Route::get('/','IndexController@index')->name('admin.index.index');//首页
 	});
 
+	//权限中间件  设计权限操作都写在这里面
 	Route::group(['middleware' => ['Jurisdiction']], function () {
 		Route::prefix('admin')->group(function () {
 			Route::get('/', 'AdminController@index')->name('admin.admin.index');//管理员列表
